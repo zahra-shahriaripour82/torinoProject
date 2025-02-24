@@ -1,8 +1,8 @@
 import { yekan } from "@/core/utils/Font";
 import TanstackQueryProvider from "@/core/providers/TanstackQueryProvider";
 import "./globals.css";
-import Header from "@/components/templates/Header";
-import Footer from "@/components/templates/Footer";
+import Header from "@/components/templates/header";
+import Footer from "@/components/templates/footer";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,8 +11,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fa" dir="rtl">
-      <body className={yekan.className}>
+    <html lang="fa" dir="rtl" className={`${yekan.className}`}>
+      <body >
         <TanstackQueryProvider>
           <Header />
           <main className="min-h-svh	">{children}</main>

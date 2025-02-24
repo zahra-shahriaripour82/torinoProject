@@ -14,8 +14,11 @@ module.exports = {
         primary: "var(--primary-color)",
         secondary: "var(--secondary-color)",
         complementary: "var(--complementary-color)",
+        border: "var(--border-color)",
       },
-     
+      fontFamily: {
+        sans: ['var(--font-yekan)']
+      },
     },
   },
   plugins: [],
