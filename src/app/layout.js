@@ -3,6 +3,7 @@ import TanstackQueryProvider from "@/core/providers/TanstackQueryProvider";
 import "./globals.css";
 import Header from "@/components/templates/header";
 import Footer from "@/components/templates/footer";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "Create Next App",
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
           <main className="min-h-svh	">{children}</main>
           <Footer />
         </TanstackQueryProvider>
+        <Toaster/>
       </body>
     </html>
   );
