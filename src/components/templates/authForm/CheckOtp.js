@@ -3,7 +3,7 @@ import OtpInput from "react-otp-input";
 
 import ArrowLeft from "../../../../public/icons/Arrow-left";
 import { useEffect, useState } from "react";
-import { useCheckOtop } from "@/core/services/mutation";
+import { useCheckOtop } from "@/core/services/mutations";
 import toast from "react-hot-toast";
 import api from "@/core/config/api";
 import { useRouter } from "next/navigation";

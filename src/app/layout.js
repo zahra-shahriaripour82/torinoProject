@@ -1,5 +1,5 @@
 import { yekan } from "@/core/utils/Font";
-import TanstackQueryProvider from "@/core/providers/TanstackQueryProvider";
+import TanstackQueryProvider from "@/components/partials/providers/TanstackQueryProvider";
 import "./globals.css";
 import Header from "@/components/templates/header";
 import Footer from "@/components/templates/footer";

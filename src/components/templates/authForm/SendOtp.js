@@ -2,7 +2,7 @@ import ModalContainer from "@/components/partials/container/ModalContainer";
 import Close from "../../../../public/icons/Close";
 import { isValidMobile } from "@/core/utils/validation";
 import { useState } from "react";
-import { useSendOtop } from "@/core/services/mutation";
+import { useSendOtop } from "@/core/services/mutations";
 import toast from "react-hot-toast";
 
 function SendOtp({ setIsOpen, mobile, setMobile ,setStep}) {

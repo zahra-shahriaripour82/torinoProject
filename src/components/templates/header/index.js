@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import Logo from "../../../../public/Images/Logo.png";
 import { navList } from "@/core/constants/constants";
 import AuthForm from "../authForm";
+import MobileMenu from "../mobileMenu";
 
 function Header() {
   const pathname=usePathname();
@@ -28,11 +29,14 @@ function Header() {
           <nav>
             <ul className="hidden md:flex gap-8">
               {navList.map((item) => (
-                <li key={item.id} >
-                  <Link href={item.href} className={`text-base hover:text-primary ${pathname===item.href ?'text-primary' :""}` }>{item.title}</Link>
+                <li key={item.id}  className={`text-xs xl:text-base transition-all ease-out hover:text-primary ${
+                  pathname === item.href ? 'text-primary' : ''
+              }`}>
+                  <Link href={item.href} >{item.title}</Link>
                 </li>
               ))}
             </ul>
+            <MobileMenu />
           </nav>
          
         </div>
