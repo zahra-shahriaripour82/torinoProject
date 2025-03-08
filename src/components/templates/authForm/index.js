@@ -11,17 +11,29 @@ import frame from "../../../../public/Images/frame.png";
 import CheckOtp from "./CheckOtp";
 import SendOtp from "./SendOtp";
 import Login from "../../../../public/icons/Login";
+import arrow from "../../../../public/icons/arrow-down.svg"
+import DropMenu from "../dropDownMenu";
+// import Profile from "../../../../public/icons/Profile";
+// import ArrowDown from "./ArrowDown";
 
 function AuthForm() {
   const [isOpen, setIsOpen] = useState(false);
   const [mobile,setMobile]=useState("")
   const [step, setStep] = useState(1);
-
+const [openDropMenu,setOpenDropMenu]=useState(false)
 
 const{data}=useGetUserData();
 console.log(data);
 
-
+if(data?.data) return (
+  <div className="text-center ">
+    <button onClick={e=>setOpenDropMenu(!openDropMenu)} className="flex justify-center items-center gap-2 md:px-4 md:py-2 text-primary font-medium text-lg">
+<Image src={frame} alt="پروفایل" width={24} height={24} priority className="h-[24px] w-[24px] mb-1"/> <span>{data.data.mobile}</span> <Image src={arrow} alt="پروفایل کاربر" className="h-[24px] w-[24px] mb-1"/>
+    </button>
+    {!!openDropMenu && <DropMenu mobile={data.data.mobile} />}
+   
+  </div>
+)
 
   return (
     // className="w-auto h-auto"
