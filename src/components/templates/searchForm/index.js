@@ -15,7 +15,7 @@ function SearchForm() {
   const [query,setQuery]=useState();
   const { register,
     handleSubmit,control}=useForm()
-    const {data ,isPending,refetch}=useGetTours(query);
+    const {data ,refetch}=useGetTours(query);
  useEffect(()=>{
   refetch();
  },[query])

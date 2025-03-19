@@ -1,7 +1,15 @@
 import HomePage from "@/components/templates/homePage";
+import { serverFetch } from "@/core/services/http";
 
-export default function Home() {
+export default async function Home() {
+  //, searchParams, { cache: "no-store" }
+  const data = await serverFetch("tour",);
+  console.log(data);
+  
   return (
-   <HomePage/>
+    
+    
+   <HomePage data={data}/>
+    
   );
 }

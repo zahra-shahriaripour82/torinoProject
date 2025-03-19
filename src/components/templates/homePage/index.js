@@ -1,15 +1,18 @@
+
 import ModalContainer from "@/components/partials/container/ModalContainer"
-import Banner from "../banner"
 import SearchForm from "../searchForm"
+import TourList from "../TourList"
+import Banner from "../banner"
 
 
 
 
-function HomePage() {
+function HomePage({data}) {
   return (
     <>
     <Banner/>
-    <SearchForm/>
+    <SearchForm />
+    <TourList toursData={data}/>
     <ModalContainer/>
  
     </>
