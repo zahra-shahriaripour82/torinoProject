@@ -1,6 +1,9 @@
 "use client"
 import { Controller, useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { DatePicker } from 'zaman';
+import QueryString from "qs";
 
 
 import { citiesList } from "@/core/constants/constants";
@@ -9,10 +12,11 @@ import Global from "../../../../public/icons/Global";
 import Location from "../../../../public/icons/Location";
 import { useGetTours } from "@/core/services/queries";
 import { DateToIso, flattenObject } from "@/core/utils/helper";
-import { useEffect, useState } from "react";
 
 function SearchForm() {
   const [query,setQuery]=useState();
+  const router=useRouter();
+
   const { register,
     handleSubmit,control}=useForm()
     const {data ,refetch}=useGetTours(query);
@@ -22,8 +26,11 @@ function SearchForm() {
     
     const submitHandler=(form)=>{
       console.log(data);
-      // const query = QueryString.stringify(flattenObject(form));
-      setQuery(flattenObject(form))
+      // setQuery(flattenObject(form))
+      const query = QueryString.stringify(flattenObject(form));
+      console.log(query);
+      
+    router.push(`/?${query}`)
       // refetch()
     }
     
