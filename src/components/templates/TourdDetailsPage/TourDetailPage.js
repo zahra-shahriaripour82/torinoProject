@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 
-function TourDetailPage({toursData}) {
+function TourDetailPage({tourData}) {
   
   
   return (

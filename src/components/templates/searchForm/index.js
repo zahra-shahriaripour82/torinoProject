@@ -6,24 +6,37 @@ import { DatePicker } from 'zaman';
 import QueryString from "qs";
 
 
-import { citiesList } from "@/core/constants/constants";
-import Calender from "../../../../public/icons/Calender";
-import Global from "../../../../public/icons/Global";
-import Location from "../../../../public/icons/Location";
-import { useGetTours } from "@/core/services/queries";
 import { DateToIso, flattenObject } from "@/core/utils/helper";
+import Location from "../../../../public/icons/Location";
+import Calender from "../../../../public/icons/Calender";
+import { citiesList } from "@/core/constants/constants";
+import { useGetTours } from "@/core/services/queries";
+import Global from "../../../../public/icons/Global";
+import useQuery from "@/core/hook/queri";
 
 function SearchForm() {
+  const {getQuery}=useQuery();
   const [query,setQuery]=useState();
   const router=useRouter();
 
   const { register,
-    handleSubmit,control}=useForm()
+    handleSubmit,control ,reset}=useForm({defaultValues:{
+      originId: "default",
+      destinationId: "default",
+      date: null,
+    }})
     const {data ,refetch}=useGetTours(query);
- useEffect(()=>{
-  refetch();
- },[query])
+//  useEffect(()=>{
+//   refetch();
+//  },[query])
+  useEffect(()=>{
+    const originId=getQuery("originId");
+    const destinationId=getQuery("destinationId")
+    const date=getQuery("date")
+    if (originId && destinationId && data) reset({originId,destinationId,date})
+   
     
+  },[])  
     const submitHandler=(form)=>{
       console.log(data);
       // setQuery(flattenObject(form))
