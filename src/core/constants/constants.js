@@ -1,3 +1,4 @@
+
  const navList=[
     { id: 1, href: "/", title: "صفحه اصلی" },
     { id: 2, href: "/services", title: "خدمات گردشگری" },
@@ -14,4 +15,5 @@ const citiesList=[
     {id : 7 , name: "مازندران"},
     {id : 8 , name: "افرود سنتر"},
 ]
+
  export {navList ,citiesList}

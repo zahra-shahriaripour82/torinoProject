@@ -15,5 +15,6 @@ const flattenObject = (obj, delimiter = ".", prefix = "") => {
   };
   
   const DateToIso = (date) => new Date(date).toISOString();
-  
+  let today = new Date().toLocaleDateString('fa-IR');
+console.log(today);
   export { flattenObject, DateToIso };
