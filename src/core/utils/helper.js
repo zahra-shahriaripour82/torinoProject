@@ -13,8 +13,13 @@ const flattenObject = (obj, delimiter = ".", prefix = "") => {
   
     return flattObject;
   };
-  
+  // convert date to iso date format
   const DateToIso = (date) => new Date(date).toISOString();
-  let today = new Date().toLocaleDateString('fa-IR');
-console.log(today);
-  export { flattenObject, DateToIso };
+
+  // convert date to persian date
+  const DateToPersian = date=> new Date(date).toLocaleDateString('fa-IR');
+
+  const ToPersianNum = num =>(new Number(num).toLocaleString('fa-ir'))
+
+
+  export { flattenObject, DateToIso,DateToPersian,ToPersianNum };

@@ -14,7 +14,6 @@ function HomePage({data}) {
     <Banner/>
     <SearchForm />
     <TourList toursData={data}/>
-    <TourDetailPage toursData={data}/>
     <ModalContainer/>
  
     </>
