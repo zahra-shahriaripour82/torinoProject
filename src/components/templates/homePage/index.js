@@ -3,7 +3,7 @@ import ModalContainer from "@/components/partials/container/ModalContainer"
 import SearchForm from "../searchForm"
 import TourList from "../TourList"
 import Banner from "../banner"
-import TourDetailPage from "../TourdDetailsPage/TourDetailPage"
+import TourDetailPage from "../TourdDetailsPage"
 
 
 

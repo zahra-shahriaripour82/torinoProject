@@ -22,5 +22,11 @@ const useCheckOtop = () => {
 
   return useMutation({ mutationFn, onSuccess});
 };
+const useAddToBasket = () => {
+  
+  const mutationFn = (id) => api.put(`basket/${id}`);
 
-export { useSendOtop, useCheckOtop };
+  
+  return useMutation({ mutationFn });
+};
+export { useSendOtop, useCheckOtop, useAddToBasket};

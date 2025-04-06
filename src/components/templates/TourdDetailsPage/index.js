@@ -1,3 +1,4 @@
+import ReservationButton from "@/components/atoms/ReservationButton";
 import { DateToPersian, ToPersianNum } from "@/core/utils/helper"
 import Image from "next/image"
 
@@ -81,7 +82,7 @@ const tourFeaturs=[{title:"مبدا",icon:"/icons/routing-2.svg",value:tourData?
                                 </div>
                             </div>
                             <div className="hidden md:flex  mt-14 flex-row-reverse justify-between items-center">
-                            <button  className="bg-primary text-white py-3 px-12 rounded-md text-2xl"> رزرو و خرید</button>
+                            <ReservationButton id={tourData.id}/>
                                 <div className="text-complementary text-2xl  font-semibold justify-self-end">
                                     {ToPersianNum(tourData.price)} <span className="text-sm text-gray-600">تومان</span>
                                 </div>
@@ -89,6 +90,7 @@ const tourFeaturs=[{title:"مبدا",icon:"/icons/routing-2.svg",value:tourData?
                         </div>
 
                         <div className="hidden md:grid grid-cols-6 md:col-span-4 gap-4 mt-6 border-r  *:border-l">
+
                             {tourFeaturs.map((feature, index) => (
                                 <div key={index} className="flex flex-col items-center">
                                     <div className="flex items-center justify-center w-12 h-12 bg-gray-200 rounded-full">
@@ -101,7 +103,7 @@ const tourFeaturs=[{title:"مبدا",icon:"/icons/routing-2.svg",value:tourData?
                         </div>
 
                         <div className="md:hidden col-span-4 flex justify-between items-center ">
-                          <button className="bg-primary text-white py-2 px-8 rounded-md text-2xl "> رزرو و خرید</button>
+                          <ReservationButton id={tourData.id}/>
                             <div className="text-complementary text-2xl  font-semibold justify-self-end">
                                 {ToPersianNum(tourData.price)} <span className="text-sm text-gray-600">تومان</span>
                             </div>

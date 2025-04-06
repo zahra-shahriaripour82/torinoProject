@@ -1,4 +1,4 @@
-import TourDetailPage from '@/components/templates/TourdDetailsPage/TourDetailPage'
+import TourDetailPage from '@/components/templates/TourdDetailsPage'
 import { serverFetch } from '@/core/services/http'
 
 

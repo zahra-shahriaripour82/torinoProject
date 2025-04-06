@@ -24,7 +24,8 @@ function TourCard({ id, startDate, endDate, fleetVehicle, title, price, options,
           </div>
         </Link>
         <div className="flex items-center justify-between  ">
-          <button className=" w-[99px] h-[29px]  rounded bg-primary text-background ">رزرو</button>
+      
+        <Link href={`/tour/${id}`}><button className=" w-[99px] h-[29px]  rounded bg-primary text-background ">رزرو</button></Link>   
           <p> <span className="text-complementary">{price.toLocaleString('fa-ir')}</span> تومان</p>
         </div>
       </div>
