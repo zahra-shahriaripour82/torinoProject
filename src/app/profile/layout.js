@@ -52,6 +52,7 @@ function ProfileLayout({ children }) {
             </ul>
           </div>
         </div>
+        {/* className='md:col-span-3  md:mx-0' */}
         <main>{children}</main>
       </div>
     </AuthProvider>
