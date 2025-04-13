@@ -1,20 +1,45 @@
 "use client";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+
+import { useUpdateAccountInfo } from "@/core/services/mutations";
 
 function AccountInformation({ data }) {
+  console.log(data);
+  
   const [isEdit, setIsEdit] = useState(false);
+  const {mutate,isPending}=useUpdateAccountInfo();
   const {
     register,
     handleSubmit,
 
     formState: { errors },
+    
+    reset ,
   } = useForm();
 
-  const emailHandler = (data) => {
-    console.log(data);
+  const emailHandler = (formData) => {
+ if (isPending) return ;  
+
+mutate(formData, {
+  onSuccess: () => {
+      toast.success("ایمیل شما با موفقیت به‌روزرسانی شد");
+      setIsEdit(false);
+  },
+  onError: () => {
+      toast.error("خطا در به‌روزرسانی ایمیل");
+  }
+})
+
+
   };
-  const canselHandlre = () => {};
+
+
+  const canselHandlre = () => {
+    // reset({ email: data?.email || '' })
+    setIsEdit(false)
+  };
   return (
     <form onSubmit={handleSubmit(emailHandler)} className="border-2 rounded-[10px] text-sm md:text-xl">
       <div className="flex items-baseline justify-between p-4">
@@ -38,9 +63,9 @@ function AccountInformation({ data }) {
                 <p className="md:pl-6 font-medium ">شماره تلفن:</p>
                 <p className="font-light">{data?.data.mobile || "-"}</p>
               </div>
-              <div className="">
-                <input type="email" placeholder="آدرس ایمیل" {...register("email")} className="w-full border border-border rounded-md p-2" />
-                {errors.email && <p>{errors.email.message}</p>}
+              <div>
+                <input type="email" placeholder="آدرس ایمیل" {...register("email")} className={`w-full border-2 border-border rounded-md p-2 ${errors.email ? 'border-red-500' : ''}`} />
+                {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
                 <div className="flex gap-8 mt-4 ">
                   <button type="onSubmit" className="text-white bg-primary rounded-md p-2 w-36 ">تایید</button>
                   <button onClick={canselHandlre} className="text-primary rounded-md border-primary border-2 p-2 w-36 ">انصراف</button>
@@ -56,9 +81,9 @@ function AccountInformation({ data }) {
               <p>شماره تلفن</p>
               <p>{data?.data.mobile || "-"}</p>
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between ">
               <p>ایمیل</p>
-              <p>{data?.email || "-"}</p>
+              <p>{data?.data.email || "-"}</p>
             </div>
           </div>
         </div>
