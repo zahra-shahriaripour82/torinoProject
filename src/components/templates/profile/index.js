@@ -9,7 +9,7 @@ function Profile() {
 <>
 
 <AccountInformation data={data}/>
-<BankAccountInfo/>
+<BankAccountInfo data={data}/>
 </>
   )
 }

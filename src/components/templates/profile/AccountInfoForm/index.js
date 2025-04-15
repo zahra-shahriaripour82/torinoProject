@@ -15,7 +15,7 @@ function AccountInformation({ data }) {
     handleSubmit,
 
     formState: { errors },
-    
+
     reset ,
   } = useForm();
 
@@ -37,11 +37,11 @@ mutate(formData, {
 
 
   const canselHandlre = () => {
-    // reset({ email: data?.email || '' })
+    reset({ email: data?.email || '' })
     setIsEdit(false)
   };
   return (
-    <form onSubmit={handleSubmit(emailHandler)} className="border-2 rounded-[10px] text-sm md:text-xl">
+    <form onSubmit={handleSubmit(emailHandler)} className="border border-border rounded-[10px] text-sm md:text-xl">
       <div className="flex items-baseline justify-between p-4">
         <h4 className=" font-normal">{isEdit ? "ویرایش اطلاعات حساب کاربری" : "اطلاعات حساب کاربری"}</h4>
         {!isEdit && (
@@ -66,7 +66,7 @@ mutate(formData, {
               <div>
                 <input type="email" placeholder="آدرس ایمیل" {...register("email")} className={`w-full border-2 border-border rounded-md p-2 ${errors.email ? 'border-red-500' : ''}`} />
                 {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
-                <div className="flex gap-8 mt-4 ">
+                <div className="flex gap-8 mt-4 flex-row-reverse ">
                   <button type="onSubmit" className="text-white bg-primary rounded-md p-2 w-36 ">تایید</button>
                   <button onClick={canselHandlre} className="text-primary rounded-md border-primary border-2 p-2 w-36 ">انصراف</button>
                 </div > 
