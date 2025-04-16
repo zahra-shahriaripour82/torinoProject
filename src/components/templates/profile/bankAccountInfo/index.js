@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 
 function BankAccountInfo({ data }) {
   const [isEdit, setIsEdit] = useState(false);
-  const {mutate,isPending}=useUpdateAccountInfo();
+  const { mutate, isPending } = useUpdateAccountInfo();
   const {
     register,
     handleSubmit,
@@ -19,26 +19,28 @@ function BankAccountInfo({ data }) {
   } = useForm({
     resolver: yupResolver(bankAccountSchema),
     defaultValues: {
-      debitCard_code: '',
-      shaba_code: '',
-      accountIdentifier: '',
-  }
+      debitCard_code: "",
+      shaba_code: "",
+      accountIdentifier: "",
+    },
   });
 
   const accountInfoHandler = (formData) => {
-    
-    
-    if(isPending) return ;
-    mutate({payment:formData},{ onSuccess:(data)=>{
-toast.success(data?.data.message)
-    },onError:(data)=>{
-      toast.error(data?.data?.error)
-    }})
-    setIsEdit(false)
- 
+    if (isPending) return;
+    mutate(
+      { payment: formData },
+      {
+        onSuccess: (data) => {
+          toast.success(data?.data.message);
+        },
+        onError: (data) => {
+          toast.error(data?.data?.error);
+        },
+      }
+    );
+    setIsEdit(false);
   };
 
-  
   return (
     <form
       onSubmit={handleSubmit(accountInfoHandler)}
@@ -63,22 +65,36 @@ toast.success(data?.data.message)
           {/* //*:border-2 *:p-2 *:my-2 *:md:mx-3 *:rounded-md *:border-border*:w-full */}
           <div className=" lg:flex gap-2 ">
             <div className="w-full ">
-
-            <input placeholder="شماره کارت" {...register("debitCard_code")}className="border-2 p-2 my-2 md:mx-1 rounded-md border-border w-full" />
-            {errors.debitCard_code && <p className='text-red-500'>{errors.debitCard_code.message}</p>}
+              <input
+                placeholder="شماره کارت"
+                {...register("debitCard_code")}
+                className="border-2 p-2 my-2 md:mx-1 rounded-md border-border w-full  focus:border-green-700 focus:outline-none"
+              />
+              {errors.debitCard_code && (
+                <p className="text-red-500">{errors.debitCard_code.message}</p>
+              )}
             </div>
             <div className="w-full ">
-            <input placeholder="شماره شبا" {...register("shaba_code")} className="border-2 p-2 my-2 md:mx-1 rounded-md border-border w-full"/>
-            {errors.shaba_code && <p className='text-red-500'>{errors.shaba_code.message}</p>}
+              <input
+                placeholder="شماره شبا"
+                {...register("shaba_code")}
+                className="border-2 p-2 my-2 md:mx-1 rounded-md border-border w-full  focus:border-green-700 focus:outline-none"
+              />
+              {errors.shaba_code && (
+                <p className="text-red-500">{errors.shaba_code.message}</p>
+              )}
             </div>
             <div className="w-full">
-
-            <input
-              placeholder="شماره حساب"
-              {...register("accountIdentifier")}
-              className="border-2 p-2 my-2 md:mx-1 rounded-md border-border w-full "
+              <input
+                placeholder="شماره حساب"
+                {...register("accountIdentifier")}
+                className="border-2 p-2 my-2 md:mx-1 rounded-md border-border w-full  focus:border-green-700 focus:outline-none"
               />
-              {errors.accountIdentifier && <p className='text-red-500 '>{errors.accountIdentifier.message}</p>}
+              {errors.accountIdentifier && (
+                <p className="text-red-500 ">
+                  {errors.accountIdentifier.message}
+                </p>
+              )}
             </div>
           </div>
           <div className="flex flex-row-reverse gap-8 mt-4 border-t-2 border-border pt-4 ">
@@ -89,7 +105,7 @@ toast.success(data?.data.message)
               تایید
             </button>
             <button
-              onClick={()=>setIsEdit(false)}
+              onClick={() => setIsEdit(false)}
               className="text-primary rounded-md border-primary border-2 p-2 w-36 "
             >
               انصراف
@@ -98,18 +114,18 @@ toast.success(data?.data.message)
         </div>
       ) : (
         <div className="p-4">
-          <div className="flex justify-between flex-wrap ">
-            <div>
+          <div className=" grid grid-cols-1 md:grid-cols-2 gap-4 ">
+            <div className="flex gap-4">
               <p>شماره شبا</p>
-              <p>{data?.data?.payment?.shaba_code || "-"}</p>
+              <p >{data?.data?.payment?.shaba_code || "-"}</p>
             </div>
-            <div>
-              <p> شماره حساب</p>
-              <p>{data?.data.payment?.accountIdentifier || "-"}</p>
-            </div>
-            <div>
+            <div className="flex gap-4">
               <p> شماره کارت</p>
-              <p>{data?.data.payment?.debitCard_code || "-"}</p>
+              <p className="font-medium">{data?.data.payment?.debitCard_code || "-"}</p>
+            </div>
+            <div className="flex gap-4 ">
+              <p> شماره حساب</p>
+              <p className="font-medium">{data?.data.payment?.accountIdentifier || "-"}</p>
             </div>
           </div>
         </div>

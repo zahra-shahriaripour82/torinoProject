@@ -61,10 +61,10 @@ mutate(formData, {
             <div  className="flex flex-col gap-4">
               <div className="flex justify-between md:justify-start ">
                 <p className="md:pl-6 font-medium ">شماره تلفن:</p>
-                <p className="font-light">{data?.data.mobile || "-"}</p>
+                <p className="font-normal">{data?.data.mobile || "-"}</p>
               </div>
               <div>
-                <input type="email" placeholder="آدرس ایمیل" {...register("email")} className={`w-full border-2 border-border rounded-md p-2 ${errors.email ? 'border-red-500' : ''}`} />
+                <input type="email" placeholder="آدرس ایمیل" {...register("email")} className={`w-full border-2 border-border rounded-md p-2  focus:border-green-700 focus:outline-none${errors.email ? 'border-red-500' : ''}`} />
                 {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
                 <div className="flex gap-8 mt-4 flex-row-reverse ">
                   <button type="onSubmit" className="text-white bg-primary rounded-md p-2 w-36 ">تایید</button>
@@ -79,11 +79,11 @@ mutate(formData, {
           <div className="flex flex-col gap-4">
             <div className="flex justify-between text-sm md:text-xl">
               <p>شماره تلفن</p>
-              <p>{data?.data.mobile || "-"}</p>
+              <p className="font-normal">{data?.data.mobile || "-"}</p>
             </div>
             <div className="flex justify-between ">
               <p>ایمیل</p>
-              <p>{data?.data.email || "-"}</p>
+              <p className="font-normal">{data?.data.email || "-"}</p>
             </div>
           </div>
         </div>
