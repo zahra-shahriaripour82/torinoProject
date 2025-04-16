@@ -1,11 +1,14 @@
 "use client";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { bankAccountSchema } from "@/core/schema";
+import { useUpdateAccountInfo } from "@/core/services/mutations";
+import toast from "react-hot-toast";
 
 function BankAccountInfo({ data }) {
   const [isEdit, setIsEdit] = useState(false);
+  const {mutate,isPending}=useUpdateAccountInfo();
   const {
     register,
     handleSubmit,
@@ -23,15 +26,19 @@ function BankAccountInfo({ data }) {
   });
 
   const accountInfoHandler = (formData) => {
-    console.log("zahra");
-     console.log("useform", formData);
+    
+    
+    if(isPending) return ;
+    mutate({payment:formData},{ onSuccess:(data)=>{
+toast.success(data?.data.message)
+    },onError:(data)=>{
+      toast.error(data?.data?.error)
+    }})
+    setIsEdit(false)
+ 
   };
 
-  const canselHandlre = () => {
-    // reset(data?.data);
-    console.log("cansel");
-    
-  };
+  
   return (
     <form
       onSubmit={handleSubmit(accountInfoHandler)}
@@ -82,7 +89,7 @@ function BankAccountInfo({ data }) {
               تایید
             </button>
             <button
-              onClick={canselHandlre}
+              onClick={()=>setIsEdit(false)}
               className="text-primary rounded-md border-primary border-2 p-2 w-36 "
             >
               انصراف
@@ -94,15 +101,15 @@ function BankAccountInfo({ data }) {
           <div className="flex justify-between flex-wrap ">
             <div>
               <p>شماره شبا</p>
-              <p>{data?.data.shaba_code || "-"}</p>
+              <p>{data?.data?.payment?.shaba_code || "-"}</p>
             </div>
             <div>
               <p> شماره حساب</p>
-              <p>{data?.data.accountIdentifier || "-"}</p>
+              <p>{data?.data.payment?.accountIdentifier || "-"}</p>
             </div>
             <div>
               <p> شماره کارت</p>
-              <p>{data?.data.debitCard_code || "-"}</p>
+              <p>{data?.data.payment?.debitCard_code || "-"}</p>
             </div>
           </div>
         </div>
