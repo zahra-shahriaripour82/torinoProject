@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { bankAccountSchema } from "@/core/schema";
 import { useUpdateAccountInfo } from "@/core/services/mutations";
@@ -116,16 +116,16 @@ function BankAccountInfo({ data }) {
         <div className="p-4">
           <div className=" grid grid-cols-1 md:grid-cols-2 gap-4 ">
             <div className="flex gap-4">
-              <p>شماره شبا</p>
-              <p >{data?.data?.payment?.shaba_code || "-"}</p>
+              <p className="font-medium">شماره شبا</p>
+              <p  >{data?.data?.payment?.shaba_code || "-"}</p>
             </div>
             <div className="flex gap-4">
-              <p> شماره کارت</p>
-              <p className="font-medium">{data?.data.payment?.debitCard_code || "-"}</p>
+              <p className="font-medium"> شماره کارت</p>
+              <p >{data?.data?.payment?.debitCard_code || "-"}</p>
             </div>
             <div className="flex gap-4 ">
-              <p> شماره حساب</p>
-              <p className="font-medium">{data?.data.payment?.accountIdentifier || "-"}</p>
+              <p className="font-medium"> شماره حساب</p>
+              <p >{data?.data?.payment?.accountIdentifier || "-"}</p>
             </div>
           </div>
         </div>

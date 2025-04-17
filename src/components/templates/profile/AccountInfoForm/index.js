@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 import { useUpdateAccountInfo } from "@/core/services/mutations";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { accountInfoSchema } from "@/core/schema";
 
 function AccountInformation({ data }) {
   console.log(data);
@@ -17,7 +19,7 @@ function AccountInformation({ data }) {
     formState: { errors },
 
     reset ,
-  } = useForm();
+  } = useForm({resolver:yupResolver(accountInfoSchema)});
 
   const emailHandler = (formData) => {
  if (isPending) return ;  
@@ -78,12 +80,12 @@ mutate(formData, {
         <div className="p-4">
           <div className="flex flex-col gap-4">
             <div className="flex justify-between text-sm md:text-xl">
-              <p>شماره تلفن</p>
-              <p className="font-normal">{data?.data.mobile || "-"}</p>
+              <p className="font-normal">شماره تلفن</p>
+              <p >{data?.data.mobile || "-"}</p>
             </div>
             <div className="flex justify-between ">
-              <p>ایمیل</p>
-              <p className="font-normal">{data?.data.email || "-"}</p>
+              <p className="font-normal">ایمیل</p>
+              <p >{data?.data.email || "-"}</p>
             </div>
           </div>
         </div>
