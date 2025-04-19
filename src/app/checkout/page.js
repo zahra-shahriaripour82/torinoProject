@@ -1,8 +1,8 @@
-import React from 'react'
+import CheckOut from "@/components/templates/checkout";
 
 function CheckOutPage() {
   return (
-    <div>CheckOutPage</div>
+   < CheckOut/>
   )
 }
 

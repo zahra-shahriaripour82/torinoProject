@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useUpdateAccountInfo } from '@/core/services/mutations';
@@ -46,21 +46,21 @@ console.log("zahra");
    
         <div >
             <input {...register("firstName")} placeholder='نام   ' className={`border-2 p-2 my-2 md:mx-1 rounded-md border-border w-full ${errors.firstName ? 'border-red-500' : ''} focus:outline-none focus:border-green-700`}/>
-            {errors?.firstName && <p className='text-red-500'>{errors?.firstName.message}</p>}
+            {errors?.firstName && <p className='text-red-500 text-sm'>{errors?.firstName.message}</p>}
         </div>
         <div >
             <input {...register("lastName")} placeholder='  نام خانوادگی' className={`border-2 p-2 my-2 md:mx-1 rounded-md border-border w-full ${errors.lastName ? 'border-red-500' : ''} focus:outline-none focus:border-green-700`}/>
-            {errors?.lastName && <p className='text-red-500'>{errors?.lastName.message}</p>}
+            {errors?.lastName && <p className='text-red-500 text-sm'>{errors?.lastName.message}</p>}
         </div>
         <div>
             <input {...register("nationalCode")} placeholder='کد ملی' className={`border-2 p-2 my-2 md:mx-1 rounded-md border-border w-full ${errors.firstName ? 'border-red-500' : ''}  focus:border-green-700 focus:outline-none `}/>
-            {errors?.nationalCode && <p className='text-red-500'>{errors?.nationalCode.message}</p>}
+            {errors?.nationalCode && <p className='text-red-500 text-sm'>{errors?.nationalCode.message}</p>}
         </div>
        
        
         <div>
             <input {...register("birthDate")} type='date' className={`border-2 p-2 my-2 md:mx-1 rounded-md border-border w-full ${errors.birthDate ? 'border-red-500' : ''}  focus:border-green-700 focus:outline-none`}/>
-            {errors?.birthDate && <p nationalCode>{errors?.birthDate.message}</p>}
+            {errors?.birthDate && <p className='text-red-500 text-sm'>{errors?.birthDate.message}</p>}
         </div>
         <div>
             <select  {...register("gender")} className={`border-2 p-2 my-2 md:mx-1 rounded-md border-border w-full ${errors.gender ? 'border-red-500' : ''} focus:border-green-700`} >

@@ -18,4 +18,10 @@ const useGetTours = (query) => {
 
   return useQuery({ queryFn, queryKey, enabled: false });
 };
-export { useGetUserData, useGetTours };
+const useGetBasket = () => {
+  const queryFn = () => api.get("basket");
+  const queryKey = ["user-basket"];
+
+  return useQuery({ queryFn, queryKey });
+};
+export { useGetUserData, useGetTours,useGetBasket };
