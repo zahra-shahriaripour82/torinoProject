@@ -28,7 +28,7 @@ function ReservationButton({ id }) {
     <div>
       <button
         onClick={CartHandler}
-        className="bg-primary text-white py-2 px-8 rounded-md text-2xl"
+        className="  hover:bg-green-900 bg-primary text-white py-2 px-8 rounded-md text-2xl"
       >
         رزرو و خرید
       </button>

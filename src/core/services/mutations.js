@@ -43,11 +43,11 @@ const useUpdateAccountInfo = () => {
 const useCheckOut=()=>{
   const queryClient = useQueryClient(); 
 
-  const mutationFn=(data)=>api.post("/order",data)
+  const mutationFn=(data)=>api.post("order",data)
 
   const onSuccess = () => {
-    queryClient.invalidateQueries({ queryKey: ["user-data"] });
+    queryClient.invalidateQueries({ queryKey: ["user/data"] });
   };
-  return useMutation(mutationFn,onSuccess)
+  return useMutation({mutationFn,onSuccess})
 }
 export { useSendOtop, useCheckOtop, useAddToBasket,useUpdateAccountInfo,useCheckOut};
