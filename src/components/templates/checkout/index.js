@@ -1,17 +1,23 @@
 "use client"
 import { useForm } from "react-hook-form"
 
+import { useCheckOut, useUpdateAccountInfo } from "@/core/services/mutations";
 import { useGetBasket, useGetUserData } from "@/core/services/queries";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { DateToPersian } from '@/core/utils/helper';
 import { ToPersianNum } from "@/core/utils/helper";
 import { personalDataSchema } from '@/core/schema';
 
-import { useEffect } from "react";
-import { useCheckOut, useUpdateAccountInfo } from "@/core/services/mutations";
+
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 function CheckOut() {
+   
+    
+    
 const {data:user}=useGetUserData();
+const router=useRouter()
     const { data: basket, isPending: basketPending } = useGetBasket();
    const {isPending:AccountInfoIsPending,mutate:AccountInfoMutate}=useUpdateAccountInfo()
     const {mutate:checkoutMutate,isPending:checkoutIsPending}=useCheckOut();
@@ -54,18 +60,26 @@ const PersonalinfoHandler=(data)=>{
     if(AccountInfoIsPending) return;
     AccountInfoMutate(data,{onSuccess:()=>{
         toast.success("اطلاعات شخصی با موفقیت ثبت شد ")
+     
     },onError:(error)=>{
         toast.error(error?.response?.data?.message ||" خطا در ثبت اطلاعات شخصی")
     }})
 
 }
 const checkoutHandler=()=>{
-if(checkoutIsPending) return 
+    
+if(checkoutIsPending) return
 
 
-    checkoutMutate(checkoutData,{onSuccess:()=>{
 
-    },onError:()=>{}})
+
+    checkoutMutate(checkoutData,{onSuccess:(data)=>{
+     console.log(data);
+     router.push("/peyment?status===success")
+
+    },onError:(error)=>{
+        toast.error(error.message|| "پرداخت با خطا  مواجه شد ")
+    }})
 }
   return (
 <div className="sm:flex max-w-[1440px] mx-8 md:mx-auto gap-6">

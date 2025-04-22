@@ -4,18 +4,24 @@ import SendOtp from "@/components/templates/authForm/SendOtp";
 import { useAddToBasket } from "@/core/services/mutations";
 import { getCookie } from "@/core/utils/cookie";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import toast from "react-hot-toast";
+import PeymentModal from "../peymentmodal";
 
 function ReservationButton({ id }) {
+  const [isModalOpen,setIsModalOpen]=useState(false)
   const { mutate, isPending } = useAddToBasket();
   const router = useRouter();
   const CartHandler = () => {
     if (isPending) return;
+    setIsModalOpen(true)
 
     mutate(id, {
       onSuccess: (data) => {
         toast.success(data.data.message);
-        router.push("/checkout");
+        setTimeout(() => {
+          router.push('/checkout');
+        }, 1000);
       },
       onError: (error) => {
         console.log(error);
@@ -25,6 +31,7 @@ function ReservationButton({ id }) {
     });
   };
   return (
+   
     <div>
       <button
         onClick={CartHandler}
@@ -32,6 +39,7 @@ function ReservationButton({ id }) {
       >
         رزرو و خرید
       </button>
+      {isModalOpen && <PeymentModal/>}
     </div>
   );
 }
