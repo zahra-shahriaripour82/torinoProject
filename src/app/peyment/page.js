@@ -1,5 +1,5 @@
 "use client"
-import Peyment from "@/components/templates/peyment/page"
+import Peyment from "@/components/templates/peyment"
 import { useSearchParams } from 'next/navigation'
 
 function PeymentPage() {

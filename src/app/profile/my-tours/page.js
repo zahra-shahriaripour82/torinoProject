@@ -1,8 +1,9 @@
-import React from 'react'
+import MyToursPage from "@/components/templates/profile/my-tours"
+
 
 function MyTourPage() {
   return (
-    <div>MyTourPage</div>
+    <MyToursPage/>
   )
 }
 
