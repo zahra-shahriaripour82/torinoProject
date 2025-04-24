@@ -1,8 +1,8 @@
-import React from 'react'
+import TransactionsPage from "@/components/templates/profile/transactions/index"
 
 function TransactionPage() {
   return (
-    <div>TransactionPage</div>
+    <TransactionsPage/>
   )
 }
 

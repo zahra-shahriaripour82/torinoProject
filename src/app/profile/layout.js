@@ -15,7 +15,7 @@ function ProfileLayout({ children }) {
     <AuthProvider>
       <div className="px-8 ">
         <div className=" max-w-[1440px] grid md:grid-cols-4 md:gap-10 my-11 mx-auto">
-          <div className="border-b md:border md:rounded-2xl  h-fit ">
+          <div className="border-b md:border md:border-border md:rounded-2xl  h-fit ">
             <ul className=" flex justify-between text-xs font-medium  md:text-sm md:block md:divide-y  ">
               <li
                 className={`flex px-5 py-3  items-center gap-2  ${

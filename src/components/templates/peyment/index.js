@@ -28,6 +28,9 @@ if (status === "==success"){
             <Link href={"/profile/my-tours"}>
             <p className="bg-primary text-center rounded-md p-3 text-white">مشاهده تور</p>
             </Link>
+            <Link href={"/"}>
+            <p className="bg-gray-200 text-center rounded-md p-3 text-black"> برگشت به صفحه اصلی</p>
+            </Link>
         </div>
     </div>
     </div>
