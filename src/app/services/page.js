@@ -13,12 +13,12 @@ function ServicesPage() {
         </div>
     
         <div className="flex flex-wrap gap-3 mt-14 justify-center"> 
-    <div className="bg-whitep-2 rounded-lg grid gap-3 p-4 border  shadow-md">
-      {/* <div className="flex justify-between"> */}
+    <div className="bg-white  rounded-lg grid gap-3 p-4 border  shadow-md ">
+   
    
       <Image src={"/icons/airplane.svg"} width={40} height={40} alt="airplan-icon" />
       <p className="font-medium  text-base text-primary">تورهای خارجی</p>  
-      {/* </div> */}
+     
 <p className="text-text">تور اروپا، تور آسیای، تور ترکیه، تور دبی و...</p>
 <Link href={"/"}>
 <p className="text-primary ">مشاهده بیشتر </p>
@@ -73,7 +73,7 @@ function ServicesPage() {
           <p>امکان پرداخت اقساطی برای برخی تورها✅</p>
           <p>مشاوره رایگان برای انتخاب بهترین مقصد✅</p>
           <p>تضمین بهترین قیمت با امکان مقایسه تورها✅</p>
-          <p> برنامهریزی اختصاصی سفر برای گروهها و شرکتها✅</p>
+          <p> برنامه ریزی اختصاصی سفر برای گروهها و شرکتها✅</p>
         </div>
         </div>  
 </>
