@@ -44,8 +44,8 @@ function Footer() {
         </div>
       </div>
     </div>
-    <div className="border-t text-center py-2">
-      developed by <Link className="" href={"https://github.com/zahra-shahriaripour82"}>Zahra shairiaripour </Link>
+    <div className="border-t text-center py-2 text-primary">
+      developed by <Link className="" href={"https://github.com/zahra-shahriaripour82"}> Zahra shahriaripour </Link>
     </div>
   </div>
   )
