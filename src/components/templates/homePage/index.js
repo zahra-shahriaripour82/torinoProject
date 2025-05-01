@@ -1,10 +1,12 @@
 
 import ModalContainer from "@/components/partials/container/ModalContainer"
+import SecondBanner from "./secondBanner"
 import SearchForm from "../searchForm"
+
 import TourList from "../TourList"
 import Banner from "../banner"
-import TourDetailPage from "../TourdDetailsPage"
-import SecondBanner from "./secondBanner"
+import Whytorino from "../why torino"
+
 
 
 
@@ -17,6 +19,7 @@ function HomePage({data}) {
     <TourList toursData={data}/>
     <ModalContainer/>
  <SecondBanner/>
+ <Whytorino/>
     </>
   )
 }
